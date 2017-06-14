@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mongodbtest</title>
+    <style>
+        body{
+            text-align: center;
+            font-size: 20px
+        }
+        table{
+            margin:20px auto;
+        }
+        td,th{padding: 1em;}
+        input{
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1">
+        姓名：<input type="text" name="name" required><br> 
+        标题：<input type="text" name="title" required><br>
+        内容：<input type="text" name='content' required><br>
+        <button id="btn">提交</button>
+        <button id="san">删除</button>
+    </form>
+    <table border="1">
+        <thead><tr><th></th><th>ID</th><th>姓名</th><th>标题</th><th>内容</th></tr></thead>
+        <tbody id="log">
+            <?lists.forEach((v,i)=>{?>
+            <tr>
+                <td><?=i?></td>
+                <td><?=v._id?></td>
+                <td><?=v.name?></td>
+                <td><?=v.title?></td>
+                <td><?=v.content?></td>
+            </tr>
+            <?})?>
+        </tbody>
+        
+    </table>
+<script src='/static/js/jquery-3.2.1.min.js'></script>
+<script>
+    $('#btn').click((e)=>{
+        e.preventDefault()
+        var flag=true
+        $('#form1').find('input').each((i,v)=>{
+            if(v.value==''){
+                alert('都必填')
+                flag=false
+                return false
+            }
+        })
+        if(flag){
+            var data = $('#form1').serialize()
+            $.ajax({
+                url: '/mongodbadd',
+                type: 'POST',
+                data: data,
+                success: (data) => {
+                    var html=''
+                    $.each(data,(i,v)=>{
+                        html+=`<tr><td>${i}</td><td>${v._id}</td><td>${v.name}</td><td>${v.title}</td><td>${v.content}</td></tr>`
+                    })
+                    $('#log').html(html)
+                }
+            })
+        }
+        
+    })
+
+    $('#san').click((e)=>{
+        e.preventDefault()
+        $.ajax({
+            url:'/mongodbsan',
+            data: $('#form1').serialize(),
+            type:'get',
+            success:(data)=>{
+                var html = ''
+                $.each(data, (i, v) => {
+                    html += `<tr><td>${i}</td><td>${v._id}</td><td>${v.name}</td><td>${v.title}</td><td>${v.content}</td></tr>`
+                })
+                $('#log').html(html)
+            }
+        })
+    })
+</script>
+</body>
+</html>

@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/mongodb', function (req, res, next) {
-  PersonModel.find((err,docs) => {
+  PersonModel.find(function(err,docs){
     res.render('mongodb', res.render('mongodb',{lists:docs}));
   })
 });
@@ -32,25 +32,21 @@ router.post('/mongodbadd', function (req, res, next) {
     title: req.body.title,
     content: req.body.content
   })
-  personEntity.save((err,doc) => {
+  personEntity.save(function(err,doc){
     if (err) res.send(err)
-    PersonModel.find((err,docs) => {
+    PersonModel.find(function(err,docs){
       res.send(docs)
     })
   })
 });
 
-router.get('/mongodbsan', (req, res, next) => {
+router.get('/mongodbsan', function(req, res, next) {
   var o = {}
   req.query.name&&(o.name=req.query.name)
   req.query.title&&(o.title=req.query.title)
   req.query.content && (o.content = req.query.content)
-  PersonModel.remove(o, (err, docs) => {
-    console.log('err:')
-    console.log(err)
-    console.log('docs:')
-    console.log(docs)
-    PersonModel.find((err, docs) => {
+  PersonModel.remove(o, function(err, docs){
+    PersonModel.find(function(err, docs) {
       res.send(docs)
     })
   })

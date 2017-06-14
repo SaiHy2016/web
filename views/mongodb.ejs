@@ -30,7 +30,7 @@
     <table border="1">
         <thead><tr><th></th><th>ID</th><th>姓名</th><th>标题</th><th>内容</th></tr></thead>
         <tbody id="log">
-            <?lists.forEach((v,i)=>{?>
+            <?lists.forEach(function(v,i){?>
             <tr>
                 <td><?=i?></td>
                 <td><?=v._id?></td>
@@ -44,10 +44,10 @@
     </table>
 <script src='/static/js/jquery-3.2.1.min.js'></script>
 <script>
-    $('#btn').click((e)=>{
+    $('#btn').click(function(e){
         e.preventDefault()
         var flag=true
-        $('#form1').find('input').each((i,v)=>{
+        $('#form1').find('input').each(function(i,v){
             if(v.value==''){
                 alert('都必填')
                 flag=false
@@ -60,9 +60,9 @@
                 url: '/mongodbadd',
                 type: 'POST',
                 data: data,
-                success: (data) => {
+                success: function(data){
                     var html=''
-                    $.each(data,(i,v)=>{
+                    $.each(data, function(i,v){
                         html+=`<tr><td>${i}</td><td>${v._id}</td><td>${v.name}</td><td>${v.title}</td><td>${v.content}</td></tr>`
                     })
                     $('#log').html(html)
@@ -72,15 +72,15 @@
         
     })
 
-    $('#san').click((e)=>{
+    $('#san').click(function(e){
         e.preventDefault()
         $.ajax({
             url:'/mongodbsan',
             data: $('#form1').serialize(),
             type:'get',
-            success:(data)=>{
+            success: function(data){
                 var html = ''
-                $.each(data, (i, v) => {
+                $.each(data, function(i, v){
                     html += `<tr><td>${i}</td><td>${v._id}</td><td>${v.name}</td><td>${v.title}</td><td>${v.content}</td></tr>`
                 })
                 $('#log').html(html)

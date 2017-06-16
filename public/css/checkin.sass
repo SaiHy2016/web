@@ -1,0 +1,85 @@
+$basecol: rgb(255, 153, 0)
+$headcol: rgb(178, 93, 6)
+$itemcol: #fee684
+$bordercol: rgb(255, 153, 0)
+$color: rgb(178, 93, 6)
+$nowdaybg: #e9c530
+$checkinbtn: #42941a
+
+
+*
+    margin: 0
+    padding: 0
+
+ul,li
+    list-style: none
+
+a
+    text-decoration: none
+
+#checkin
+    max-width: 410px
+    box-sizing: border-box
+    margin: auto
+    background: $basecol
+    color: #fff
+    border-radius: 4px 
+    .c-head
+        display: flex
+        justify-content: space-between
+        font-size: 20px
+        li
+            flex: 1
+            height: 3em
+            line-height: 3em
+            text-align: center
+            &:hover
+                background: darken($basecol,5%)
+            &:nth-child(2)
+                flex: 2
+    .c-week
+        display: flex
+        text-align: center
+        li 
+            flex: 1
+            background: $headcol
+            border-right: 1px solid $bordercol
+            padding: 1em 0
+            &:last-child
+                border-right: none
+    .c-day
+        display: flex
+        text-align: center
+        color: $color
+        flex-flow: row wrap
+        li 
+            box-sizing: border-box
+            width: calc(100%/7)
+            padding: 1em 0
+            background-color: $itemcol
+            border-top: 1px solid $bordercol
+            border-right: 1px solid $bordercol
+            position: relative
+            &.today
+                background: $nowdaybg
+            .iconfont
+                position: absolute
+                top: 0
+                left: 0
+                right: 0
+                bottom: 0
+                background: rgba(255,255,255,.2)
+                overflow: hidden
+                display: flex
+                justify-content: center
+                align-items: center
+                font-size: 4em
+
+    .checkin
+        font-size: 18px
+        text-align: center
+        display: block
+        padding: .5em 0
+        background: $checkinbtn
+        &:hover
+            background: lighten($checkinbtn,8%)

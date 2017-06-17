@@ -24,7 +24,10 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/checkin', function (req, res, next) {
-  let t = new Date(), y = t.getFullYear(), m = t.getMonth() + 1,reg
+  let t = new Date(),
+    y = t.getFullYear(),
+    m = t.getMonth() + 1,
+    reg, log, hascheck=false
   //判断 天 年
   if (m == 1) {
     y -= 1
@@ -35,9 +38,8 @@ router.get('/checkin', function (req, res, next) {
   } else {
     reg=`^${y}-(${m}|${m-1}|${m+1})-\\d{1,2}\\b`
   }
-  console.log(reg)
   checkinModel.find({ name: '胡渊', time: { $regex: reg}},function (err, docs) {
-    var log=docs.map(function (v,i) {
+    log=docs.map(function (v,i) {
       v.time=v.time.split(/\s/g)[0]
       return v
     })
@@ -47,18 +49,30 @@ router.get('/checkin', function (req, res, next) {
       days[1]=29
     }
 
+    var checks = log.map((v, i) => {
+      if (v.time.match(/-(\d{1,2})-/)[1] == t.getMonth() + 1) {
+        if (v.time.match(/^\d{4}-\d{1,2}-(\d{1,2})$/)[1] == t.getDate())
+            hascheck=true
+        return v.time.match(/^\d{4}-\d{1,2}-(\d{1,2})$/)[1]-0
+      }
+    })
+
     console.log(log)
+    console.log(checks)
     console.log('几号date '+t.getDate())
     console.log('星期几day '+t.getDay())
     console.log('这个月几天days'+days)
     
     res.render('checkin', {
+      hascheck:hascheck,
       year: t.getFullYear(),
       month: t.getMonth(),//月份0-11
-      date: t.getDate(),
+      date: t.getDate(),//几号
       day: t.getDay(),//星期0-6
+      firstday:(new Date(`${t.getFullYear()}/${t.getMonth()+1}/1`)).getDay(),//第一天星期几
       days:days,
-      log: log
+      log: log,
+      checks:checks
     });
   })
 });
@@ -100,7 +114,7 @@ router.get('/mongodbsan', function(req, res, next) {
 })
 
 router.get('/check_in', function (req, res, next) { 
-  checkinModel.create({name:'胡渊',time:(new Date()).toLocaleString()}, function (err,docs) {
+  checkinModel.create({name:req.query.name,time:(new Date()).toLocaleString()}, function (err,docs) {
     var d=1
     res.send(`你已签到${d}天`)
   })

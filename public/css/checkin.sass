@@ -55,7 +55,8 @@ a
         li 
             box-sizing: border-box
             width: calc(100%/7)
-            padding: 1em 0
+            height: 3em
+            line-height: 3em
             background-color: $itemcol
             border-top: 1px solid $bordercol
             border-right: 1px solid $bordercol
@@ -68,18 +69,29 @@ a
                 left: 0
                 right: 0
                 bottom: 0
-                background: rgba(255,255,255,.2)
                 overflow: hidden
                 display: flex
                 justify-content: center
                 align-items: center
                 font-size: 4em
-
+                animation: fangda 1s both
+                
     .checkin
-        font-size: 18px
+        font-size: 24px
         text-align: center
         display: block
         padding: .5em 0
         background: $checkinbtn
+        cursor: pointer
         &:hover
             background: lighten($checkinbtn,8%)
+    li.light
+        color: #e9c530
+
+@keyframes fangda
+    0%
+        transform: scale(0)
+    60%
+        transform: scale(1)
+    100%
+        transform: scale(.9)

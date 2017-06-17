@@ -10,7 +10,7 @@
 </head>
 <body>
     <div id="checkin">
-        <ul class='c-head'><li><</li><li><?=year?>年<?=month?>月<?=date?>日</li><li>></li></ul>
+        <ul class='c-head'><li><</li><li><?=year?>年<?=month+1?>月<?=date?>日</li><li>></li></ul>
         <ul class="c-week">
             <li>日</li>
             <li>一</li>
@@ -21,78 +21,51 @@
             <li>六</li>
         </ul>
         <ul class='c-day'>
-            <?for(let r=1;r<=day;r++){?>
-                <li> </li>
+            <?for(let r=firstday;r>0;r--){?>
+                <li class='light'><?=days[month-1]-r+1?> </li>
             <?}?>
-            <?for(let i=1;i<=35-day;i++){?>
-                <li>
+            <?for(let i=1,j=1;i<=35-firstday;i++){?>
+                <li class='<?=i==date?'today':''?>'>
                     <?if(i<=days[month]){?>
+                        <?if(checks.indexOf(i)>-1){?>
+                            <i class='iconfont icon-circle-select'></i>
+                        <?}?>
                         <?=i?>
                     <?}else{?>
-                        <?= ?>
+                        <?= j++?>
                     <?}?>
                 </li>
             <?}?>
-            <!--<li> 1</li>
-            <li> 2</li>
-            <li> 3</li>
-            <li> 4</li>
-            <li> 5</li>
-            <li> 6</li>
-            <li> 7</li>
-            <li> 8</li>
-            <li> 9</li>
-            <li> 10</li>
-            <li> 11</li>
-            <li> 12</li>
-            <li> 13</li>
-            <li> 14</li>
-            <li> 15</li>
-            <li> 16</li>
-            <li> 17</li>
-            <li><i class='iconfont icon-circle-select'></i> 18</li>
+            <!--
             <li><i class='iconfont icon-circle-select'></i> 19</li>
             <li class='today'><i class='iconfont icon-circle-select'></i>20</li>
-            <li> 21</li>
-            <li> 22</li>
-            <li> 23</li>
-            <li> 24</li>
-            <li> 25</li>
-            <li> 26</li>
-            <li> 27</li>
-            <li> 28</li>
-            <li> 29</li>
-            <li> 30</li>
-            <li> 31</li>
-            <li> &nbsp;</li>
-            <li> </li>
-            <li> </li>
             <li> </li>-->
         </ul>
-        <span class='checkin'>签到</span>
+        <?if(hascheck){?>
+            <span class='checkin'>已签到</span>
+        <?}else{?>
+            <span class='checkin'>签到</span>
+        <?}?>
     </div>
-
     <script src='/static/js/jquery-3.2.1.min.js'></script>
     <script type="text/javascript">
-        $.fn.extend({
-            checkin:function(o){
-                $('#checkin').find('.checkin').click(function(){
-                    $.ajax({
-                        url:'/check_in',
-                        success:function(){
-
-                        }
-                    })
-                })
-            }
-        })
-
-        var param={
-            
-            
+    <?if(!hascheck){?>
+        function qian(){
+            $.ajax({
+                url:'/check_in',
+                data:{name:'胡渊'},
+                success:(res)=>{
+                    console.log(res)
+                    $('#checkin').find('.checkin').html('签到成功')
+                    $('#checkin').find('.today').append('<i class="iconfont icon-circle-select"></i>')
+                },
+                error:()=>{
+                    $('#checkin').find('.checkin').one('click',qian)
+                }
+            })
         }
-
-        $('#checkin').checkin(param)
+        $('#checkin').find('.checkin').one('click',qian)
+    <?}?>
     </script>
 </body>
 </html>

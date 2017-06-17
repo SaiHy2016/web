@@ -67,7 +67,8 @@ a {
 #checkin .c-day li {
   box-sizing: border-box;
   width: calc(100%/7);
-  padding: 1em 0;
+  height: 3em;
+  line-height: 3em;
   background-color: #fee684;
   border-top: 1px solid #ff9900;
   border-right: 1px solid #ff9900;
@@ -84,22 +85,39 @@ a {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.2);
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 4em;
+  animation: fangda 1s both;
 }
 
 #checkin .checkin {
-  font-size: 18px;
+  font-size: 24px;
   text-align: center;
   display: block;
   padding: .5em 0;
   background: #42941a;
+  cursor: pointer;
 }
 
 #checkin .checkin:hover {
   background: #51b720;
+}
+
+#checkin li.light {
+  color: #e9c530;
+}
+
+@keyframes fangda {
+  0% {
+    transform: scale(0);
+  }
+  60% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
 }

@@ -114,7 +114,7 @@ router.get('/mongodbsan', function(req, res, next) {
 })
 
 router.get('/check_in', function (req, res, next) { 
-  checkinModel.create({name:req.query.name,time:(((new Date()).getTime()+12*60*60*1000)).toLocaleString()}, function (err,docs) {
+  checkinModel.create({name:req.query.name,time:(new Date((new Date()).getTime()+12*60*60*1000)).toLocaleString()}, function (err,docs) {
     var d=1
     res.send(`你已签到${d}天`)
   })

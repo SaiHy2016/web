@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>签到</title>
+        <link rel="stylesheet" href="/static/css/checkin.min.css">
+        <link rel="stylesheet" href="/static/font/iconfont.css">
+    </head>
+
+    <body>
+        <div id="checkin">
+            <ul class='c-head'>
+                <li>
+                    <</li>
+                        <li> 年 月 日</li>
+                        <li>></li>
+            </ul>
+            <ul class="c-week">
+                <li>日</li>
+                <li>一</li>
+                <li>二</li>
+                <li>三</li>
+                <li>四</li>
+                <li>五</li>
+                <li>六</li>
+            </ul>
+            <ul class='c-day'>
+                
+            <!--
+                <li><i class='iconfont icon-circle-select'></i> 19</li>
+                <li class='today'><i class='iconfont icon-circle-select'></i>20</li>
+                <li> </li>
+            -->
+            </ul>
+
+            <span class='checkin'>签到</span>
+        </div>
+        <script src='/static/js/jquery-3.2.1.min.js'></script>
+        <script type="text/javascript">
+            $(()=>{
+                $('#checkin').checkin.find((new Date()).getTime())
+            })
+            $.fn.extend({
+                checkin:{
+                    find:(d)=>{
+                        var days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],t=new Date(d),y=t.getFullYear(),m=t.getMonth(),o
+                        if ((y % 4 == 0) && (y % 100 != 0) || (y % 400 == 0)) {
+                            days[1] = 29
+                        }
+                        console.log(y)
+                        console.log(m)
+                        o={
+                            ds:(new Date(`${y}-${m}-1`)).getTime(),
+                            de:(new Date(`${y}-${m}-${days[m]}`)).getTime()
+                        }
+                        $.get('http://127.0.0.1:3000/users/qian/find',o,()=>{
+
+                       })
+                    },
+                    qian:(d)=>{
+                        
+                    }
+                }
+            })
+        </script>
+    </body>
+
+</html>

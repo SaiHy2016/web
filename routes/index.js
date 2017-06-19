@@ -120,5 +120,4 @@ router.get('/check_in', function (req, res, next) {
   })
 })
 
-
 module.exports = router;

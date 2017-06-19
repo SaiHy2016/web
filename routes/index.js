@@ -24,7 +24,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/checkin', function (req, res, next) {
-  var t =new Date((new Date()).getTime+12*60*60*1000),
+  var t =new Date((new Date()).getTime()+12*60*60*1000),
     y = t.getFullYear(),
     m = t.getMonth() + 1,
     reg, log, hascheck=false

@@ -3,11 +3,11 @@ var router = express.Router();
 
 var mongoose = require('mongoose')
 
-var db = mongoose.connect('mongodb://localhost/qian')
+var db = mongoose.createConnection('mongodb://localhost/qian')
 
 var model = new mongoose.Schema({
   name: String,
-  time:Date
+  time: Number 
 })
 
 var qian=db.model('qian',model)
@@ -24,18 +24,22 @@ router.get('/qian', function (req, res, next) {
 //qian 接口
 router.get('/qian/find', function (req, res, next) {
   qian.find({
-        name: '胡渊',
-        time: {
-          $gte: req.query.ds,
-          $lte: req.query.de
-        }
+    name: '胡渊',
+    time: {
+      $gte:req.query.ds,
+      $lte:req.query.de
+    }
       }, ['time'], function (err, docs) {
     if (err) res.send(err)
     res.json(docs)
   })
 });
 router.get('/qian/qiandao', function (req, res, next) {
-  res.render('qian', {})
+  console.log(req.query.date)
+  qian.create({name: req.query.name, time: req.query.date }, (err,docs)=> {
+    if(err) res.send('添加失败')
+    res.send('添加成功')
+  })
 });
 
 

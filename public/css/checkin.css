@@ -121,3 +121,9 @@ a {
     transform: scale(0.9);
   }
 }
+
+@media (width: 320px) {
+  html {
+    font-size: 14px;
+  }
+}

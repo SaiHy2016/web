@@ -6,7 +6,6 @@ $color: rgb(178, 93, 6)
 $nowdaybg: #e9c530
 $checkinbtn: #42941a
 
-
 *
     margin: 0
     padding: 0
@@ -16,6 +15,7 @@ ul,li
 
 a
     text-decoration: none
+
 
 #checkin
     max-width: 410px
@@ -37,6 +37,7 @@ a
                 background: darken($basecol,5%)
             &:nth-child(2)
                 flex: 2
+
     .c-week
         display: flex
         text-align: center
@@ -95,3 +96,7 @@ a
         transform: scale(1)
     100%
         transform: scale(.9)
+
+@media (width:320px)
+  html 
+    font-size: 14px

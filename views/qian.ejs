@@ -12,7 +12,7 @@
 
     <body>
         <div id="checkin">
-            <ul class='c-head'>
+            <!--<ul class='c-head'>
                 <li>
                     <</li>
                         <li> 年 月 日</li>
@@ -27,44 +27,83 @@
                 <li>五</li>
                 <li>六</li>
             </ul>
-            <ul class='c-day'>
+            <ul class='c-day'>-->
                 
             <!--
                 <li><i class='iconfont icon-circle-select'></i> 19</li>
                 <li class='today'><i class='iconfont icon-circle-select'></i>20</li>
                 <li> </li>
             -->
-            </ul>
+            <!--</ul>
 
-            <span class='checkin'>签到</span>
+            <span class='checkin'>签到</span>-->
         </div>
         <script src='/static/js/jquery-3.2.1.min.js'></script>
         <script type="text/javascript">
-            $(()=>{
-                $('#checkin').checkin.find((new Date()).getTime())
-            })
             $.fn.extend({
-                checkin:{
-                    find:(d)=>{
-                        var days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],t=new Date(d),y=t.getFullYear(),m=t.getMonth(),o
-                        if ((y % 4 == 0) && (y % 100 != 0) || (y % 400 == 0)) {
-                            days[1] = 29
-                        }
-                        console.log(y)
-                        console.log(m)
-                        o={
-                            ds:(new Date(`${y}-${m}-1`)).getTime(),
-                            de:(new Date(`${y}-${m}-${days[m]}`)).getTime()
-                        }
-                        $.get('http://127.0.0.1:3000/users/qian/find',o,()=>{
+                cal: function(d){
+                    this.cha(d)
+                    this.find('.qian').on('click', this.qian)
+                    this.on('click','#before',()=>{
+                        alert('before')
+                        let time=$('#nowDate').html().split(/[^\d]/g)
+                        time[1]-=1
+                        $('#checkin').cha((new Date(time.join('-'))).getTime())
+                    })
 
-                       })
-                    },
-                    qian:(d)=>{
-                        
+                    this.on('','#after',()=>{
+                        alert('after')
+                        let time=$('#nowDate').html().split(/[^\d]/g) 
+                        time[1]=time[1]-0+1
+                        $('#checkin').cha((new Date(time.join('-'))).getTime()) 
+                    })
+
+                },
+                cha:function(d){
+                    var days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31], t = new Date(d), y
+= t.getFullYear(), m = t.getMonth(),jin=t.getDate(), o,html=`<ul class='c-head'><li id='before'><</li><li id='nowDate'>${y}年${m+1}月${jin}日</li><li id='after'>></li></ul><ul class="c-week"><li>日</li><li>一</li><li>二</li><li>三</li><li>四</li><li>五</li><li>六</li></ul><ul class='c-day'>`
+
+                    //判断 闰年
+                    if ((y % 4 == 0) && (y % 100 != 0) || (y % 400 == 0)) {
+                        days[1] = 29
                     }
+                    $.get('qian/find', { 
+                        ds: (new Date(`${y}-${m+1}-1`)).getTime(),
+                        de: (new Date(`${y}-${m+1}-${days[m]}`)).getTime()},
+                         t => {
+                             //获得 几号
+                            let n=t.map((v)=>{
+                                return (new Date(v.time)).getDate()
+                            })
+                            console.log(n)
+                            let week=(new Date(`${y}-${m+1}-1`)).getDay()//获取1号星期几
+                            for(let i=0;i<week;i++)
+                                html+=`<li></li>`
+                            // 往网页添加html
+                            for(let i=1;i<=days[m];i++){
+                                html+=`<li ${i==jin&&'class="today"'}>${n.indexOf(i)>-1?"<i class='iconfont icon-circle-select'></i>":""}${i}</li>`
+                            }
+                            for(let j=35-week-days[m];j>0;j--)
+                                html+='<li> </li>'
+                            html+=`</ul><span class="checkin ${n.indexOf(jin)>-1?' "> 已签到 ':'qian">签到'}</span>`
+
+                            $('#checkin').html(html)
+
+                    })
+                },
+                qian:function () {
+                    var date = new Date() - 0
+                        $.get('qian/qiandao', { name: '胡渊', date: date }, msg=> {
+                            $('#checkin').find('.today').append("<i class='iconfont icon-circle-select'></i>")
+                            $('#checkin').find('.checkin').html('已签到').removeClass('qian')
+                    })
                 }
             })
+        
+
+        $(()=>{
+            $('#checkin').cal((new Date()).getTime())
+        });
         </script>
     </body>
 

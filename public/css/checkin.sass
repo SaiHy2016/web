@@ -24,10 +24,12 @@ a
     background: $basecol
     color: #fff
     border-radius: 4px 
+    position: relative
     .c-head
         display: flex
         justify-content: space-between
         font-size: 20px
+        cursor: pointer
         li
             flex: 1
             height: 3em
@@ -100,3 +102,15 @@ a
 @media (width:320px)
   html 
     font-size: 14px
+
+#selectDate
+    display: none
+    position: absolute
+    font-size: 20px
+    top: 3em
+    left: 1%
+    right: 1%
+    bottom: 1%
+    background: #fff
+    border-radius: 4px
+    box-shadow: 0 0 5px #999

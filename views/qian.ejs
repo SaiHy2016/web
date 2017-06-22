@@ -43,7 +43,7 @@
                 hasqian:true,
                 cal: function(d){
                     var t = new Date(d), y= t.getFullYear(), m = t.getMonth(), jin = t.getDate(),
-                     h=`<ul class='c-head'> <li id='before'><</li><li id='nowDate'>${(new Date(d)).getFullYear()}年${m + 1}月${jin}日</li><li id='after'>></li></ul><ul class="c-week"><li>日</li><li>一</li><li>二</li><li>三</li><li>四</li><li>五</li><li>六</li></ul> <ul class='c-day'></ul><span class='checkin'></span><ul id='selectDate'><li>1</li></ul>`,me=this
+                     h=`<ul class='c-head'> <li id='before'><</li><li id='nowDate'>${(new Date(d)).getFullYear()}年${m + 1}月${jin}日</li><li id='after'>></li></ul><ul class="c-week"><li>日</li><li>一</li><li>二</li><li>三</li><li>四</li><li>五</li><li>六</li></ul> <ul class='c-day'></ul><span class='checkin'></span><ul id='selectDate'></ul>`,me=this
                     this.html(h)
                     this.cha(d)
                     this.on('click',(function (e) {
@@ -60,9 +60,21 @@
                             this.cha((new Date(time.slice(0, -1).join('-'))).getTime())
                             this.find('#nowDate').html(`${time[0]}年${time[1]}月${time[2]}日`)
                         }else if(e.target.id=='nowDate'){
-                            this.find('#selectDate').slideToggle(100)
+                            this.find('#selectDate').toggleClass('show')
+
+                            let lis = ''
+                            for (let i = 1; i <= 12; i++) {
+                                lis += `<li>${i}</li>`
+                            }
+                            console.log(lis)
+                            this.find('#selectDate').html(lis)
+
+
+
                         }else if($(e.target).hasClass('qian')){
                             this.qian()
+                        }else if(e.target.id=='selectDate'){
+                            
                         }
                     }).bind(this))
                 },

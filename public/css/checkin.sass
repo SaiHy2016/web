@@ -104,7 +104,6 @@ a
     font-size: 14px
 
 #selectDate
-    display: none
     position: absolute
     font-size: 20px
     top: 3em
@@ -114,3 +113,18 @@ a
     background: #fff
     border-radius: 4px
     box-shadow: 0 0 5px #999
+    display: flex
+    z-index: -1
+    opacity: 0
+    transition: all .5s
+    flex-flow: row wrap
+    justify-content: center
+    align-items: center
+    &.show
+        z-index: 100
+        opacity: 1
+        transition: all .5s
+    li 
+        width: calc(100%/4)
+        height: calc(100%/3)
+        color: #d32

@@ -20,7 +20,7 @@ var checkinModel = db.model('checkin',checkinSchema)
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: '我的网站' });
+  res.render('index', { title: '我的网站',imgs:['bg.jpg','timg.jpg','bg2.jpg','bg1.jpg']});
 });
 
 router.get('/checkin', function (req, res, next) {

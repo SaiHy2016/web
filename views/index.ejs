@@ -1,12 +1,41 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title><?= title ?></title>
-    <link rel='stylesheet' href='/static/css/style.css' />
-  </head>
-  <body>
-    <h1><?= title ?></h1>
-    <p>Welcome to <?= title ?></p>
-    
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/static/css/index.min.css">
+  <title><?=title?>></title>
+  
+</head>
+<body>
+  <?var n=parseInt(Math.random()*imgs.length)?>
+  <img src='/static/img/<?=imgs[n]?>'alt="bg"/>
+  <div class='tags'>
+    <a href="/users/qian">签到</a>
+    <a href="/checkin">签到1</a>
+    <a href="">canvas演示</a>    
+    <a href="https://saihy2016.github.io/">我的博客</a>
+    <a href="https://github.com/SaiHy2016">我的github</a>
+
+  </div>
+  <script src='/static/js/rainyday.0.1.2.min.js'></script>
+  <script type="text/javascript">
+      document.getElementsByTagName('img')[0].onload = function () {
+        var engine = new RainyDay({
+          image: this,
+          crop:[0,0,320,510]
+        })
+        engine.rain([
+          [5, 5, 4],
+          [8.8, 1]
+        ], 100)
+      }
+      window.onload=function(){
+        var img=document.getElementsByTagName('img')[0]
+        img.crossOrigin = 'anonymous';
+        img.src = img.src;
+      }
+  </script>
+</body>
 </html>

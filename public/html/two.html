@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>two.js</title>
+</head>
+<body>
+    <div id="draw-shaps"></div>
+
+
+<script src='/static/js/two.min.js'></script>
+<script>
+    var el=document.getElementById('draw-shaps')
+    var two=new Two({fullscreen:true}).appendTo(el)
+
+    var circle=two.makeCircle(-70,0,50)
+    var rect=two.makeRectangle(70,0,100,100)
+    circle.fill='#ff8000'
+    circle.stroke='orangered'
+    circle.linewidth=5
+    rect.fill='rgba(0,200,255,.75)'
+    rect.stroke='#1c75bc'
+    var curve=two.makeCurve(100,100,150,260,270,380,390,490)
+
+    var group=two.makeGroup(circle,rect)
+        group.translation.set(two.width/2,two.height/2)
+        // group.rotation=Math.PI
+        group.scale=0
+        group.linewidth=7
+
+    two.bind('update',function (frameCount) {
+        if(group.scale>.9999){
+            group.scale=group.rotation=0
+        }
+        var t=(1-group.scale)*.125
+        group.scale+=t
+        group.rotation+=t*4*Math.PI
+    }).play()
+
+    // two.update()
+</script>
+</body>
+</html>

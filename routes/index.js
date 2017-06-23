@@ -1,5 +1,8 @@
 var express = require('express');
 var router = express.Router();
+var http = require('http');
+var querystring = require('querystring');
+
 
 var mongoose = require('mongoose');
 
@@ -62,7 +65,7 @@ router.get('/checkin', function (req, res, next) {
     console.log('几号date '+t.getDate())
     console.log('星期几day '+t.getDay())
     console.log('这个月几天days'+days)
-    
+
     res.render('checkin', {
       hascheck:hascheck,
       year: t.getFullYear(),
@@ -80,6 +83,17 @@ router.get('/checkin', function (req, res, next) {
 router.get('/mongodb', function (req, res, next) {
   PersonModel.find({name:'胡渊'},function(err,docs){
     res.render('mongodb', res.render('mongodb',{lists:docs}));
+  })
+});
+
+router.get('/weather', function (req, resl, next) {
+  http.get('http://api.jirengu.com/weather.php?city=%27%E6%AD%A6%E6%B1%89%27', function (res) {
+    res.setEncoding('utf-8')
+    res.on('data', function (chunk) {
+      resl.render('weather', { data: chunk});
+    }).on('end',function () {
+      console.log('end')
+    })
   })
 });
 
@@ -113,7 +127,7 @@ router.get('/mongodbsan', function(req, res, next) {
   })
 })
 
-router.get('/check_in', function (req, res, next) { 
+router.get('/check_in', function (req, res, next) {
   checkinModel.create({name:req.query.name,time:(new Date((new Date()).getTime()+12*60*60*1000)).toLocaleString()}, function (err,docs) {
     var d=1
     res.send(`你已签到${d}天`)

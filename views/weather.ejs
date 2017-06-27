@@ -4,9 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>天气</title>
+    <style>
+
+        #weather canvas,#weather svg{
+            text-align: center
+        }
+    </style>
 </head>
 <body>
-    <?=data?>
+    <div id="weather">
+
+    </div>
+
+
+
+    <script src='/static/js/jquery-3.2.1.min.js'></script>
+    <script src='/static/js/two.min.js'></script>
+    <script>
+        $(function(){
+            $.get('http://api.jirengu.com/weather.php?city=%E6%AD%A6%E6%B1%89',function(o){
+                o = eval('(' + o + ')')
+                if(o.status=='success'){
+
+
+                }
+            })
+            var weather={
+                    width:0,
+                    height:0,
+                    init:function(){
+                        var config = { type: Two.Types.canvas }
+                        if (window.innerWidth > 414) {
+                            config.width = 414
+                            config.height = 736
+                        } else {
+                            config.fullscreen = true
+                        }
+                        var two = new Two(config).appendTo(document.getElementById('weather'))
+                        this.width=two.width
+                        this.height=two.height
+                        var cloud1=two.makeCurve()
+
+                        two.update()
+                    }
+            }
+
+            weather.init()
+
+
+
+
+
+        })
+
+    </script>
 </body>
 </html>

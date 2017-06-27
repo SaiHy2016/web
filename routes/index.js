@@ -1,8 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var http = require('http');
-var querystring = require('querystring');
-
 
 var mongoose = require('mongoose');
 
@@ -86,17 +83,9 @@ router.get('/mongodb', function (req, res, next) {
   })
 });
 
-router.get('/weather', function (req, resl, next) {
-  http.get('http://api.jirengu.com/weather.php?city=%27%E6%AD%A6%E6%B1%89%27', function (res) {
-    res.setEncoding('utf-8')
-    res.on('data', function (chunk) {
-      resl.render('weather', { data: chunk});
-    }).on('end',function () {
-      console.log('end')
-    })
-  })
+router.get('/weather', function (req, res, next) {
+  res.render('weather')
 });
-
 
 
 //ajax

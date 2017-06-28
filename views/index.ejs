@@ -40,10 +40,19 @@
       //   img.crossOrigin = 'anonymous';
       //   img.src = img.src;
       // }
-      Dot("dot", {
-        cw:window.innerWidth,
-        cH:window.innerHeight
-      });
+      if(window.innerWidth>760){
+        Dot("dot", {
+          cW: window.innerWidth,
+          cH: window.innerHeight
+        });
+      }else{
+        Dot("dot", {
+          cW: window.innerWidth,
+          cH: window.innerHeight,
+          numDot: 33
+        });
+      }
+
 
   </script>
 </body>

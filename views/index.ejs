@@ -9,8 +9,11 @@
 
 </head>
 <body>
-  <?var n=parseInt(Math.random()*imgs.length)?>
-  <img src='/static/img/<?=imgs[n]?>'alt="bg"/>
+  <!--<?var n=parseInt(Math.random()*imgs.length)?>-->
+  <!--<img src='/static/img/<?=imgs[n]?>'alt="bg"/>-->
+  <canvas id="dot" style="background:linear-gradient(to bottom, #B80D57, #C9182B);">
+    <p>your browser not support canvas</p>
+  </canvas>
   <div class='tags'>
     <a href="/users/qian">签到</a>
     <a href="/checkin">签到1</a>
@@ -19,23 +22,29 @@
     <a href="https://github.com/SaiHy2016">我的github</a>
 
   </div>
-  <script src='/static/js/rainyday.0.1.2.min.js'></script>
+  <!--<script src='/static/js/rainyday.0.1.2.min.js'></script>-->
+  <script src='/static/js/dot.min.js'></script>
   <script type="text/javascript">
-      document.getElementsByTagName('img')[0].onload = function () {
-        var engine = new RainyDay({
-          image: this,
-          crop:[0,0,320,510]
-        })
-        engine.rain([
-          [5, 5, 4],
-          [8.8, 1]
-        ], 100)
-      }
-      window.onload=function(){
-        var img=document.getElementsByTagName('img')[0]
-        img.crossOrigin = 'anonymous';
-        img.src = img.src;
-      }
+      // document.getElementsByTagName('img')[0].onload = function () {
+      //   var engine = new RainyDay({
+      //     image: this,
+      //     crop:[0,0,320,510]
+      //   })
+      //   engine.rain([
+      //     [5, 5, 4],
+      //     [8.8, 1]
+      //   ], 100)
+      // }
+      // window.onload=function(){
+      //   var img=document.getElementsByTagName('img')[0]
+      //   img.crossOrigin = 'anonymous';
+      //   img.src = img.src;
+      // }
+      Dot("dot", {
+        cw:window.innerWidth,
+        cH:window.innerHeight
+      });
+
   </script>
 </body>
 </html>

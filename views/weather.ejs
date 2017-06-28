@@ -6,58 +6,67 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>天气</title>
     <style>
-
+        body{margin: 0}
         #weather canvas,#weather svg{
             text-align: center
         }
     </style>
 </head>
 <body>
-    <div id="weather">
+    <!--<div id="weather">
 
-    </div>
+    </div>-->
+    <canvas id="canvas"></canvas>
 
 
-
-    <script src='/static/js/jquery-3.2.1.min.js'></script>
-    <script src='/static/js/two.min.js'></script>
+    <!--<script src='/static/js/jquery-3.2.1.min.js'></script>-->
+    <!--<script src='/static/js/two.min.js'></script>-->
+    <script src='/static/js/ocanvas-2.8.8.min.js'></script>
     <script>
-        $(function(){
-            $.get('http://api.jirengu.com/weather.php?city=%E6%AD%A6%E6%B1%89',function(o){
-                o = eval('(' + o + ')')
-                if(o.status=='success'){
+        // $(function(){
+            // $.get('http://api.jirengu.com/weather.php?city=%E6%AD%A6%E6%B1%89',function(o){
+            //     o = eval('(' + o + ')')
+            //     if(o.status=='success'){
 
 
-                }
-            })
-            var weather={
-                    width:0,
-                    height:0,
-                    init:function(){
-                        var config = { type: Two.Types.canvas }
-                        if (window.innerWidth > 414) {
-                            config.width = 414
-                            config.height = 736
-                        } else {
-                            config.fullscreen = true
-                        }
-                        var two = new Two(config).appendTo(document.getElementById('weather'))
-                        this.width=two.width
-                        this.height=two.height
-                        var cloud1=two.makeCurve()
+            //     }
+            // })
+        // })
 
-                        two.update()
-                    }
-            }
+        // var weather = {
+        //         width: 0,
+        //         height: 0,
+        //         init: function () {
+        //             var config = { type: Two.Types.canvas }
+        //             var config = { }
+        //             if (window.innerWidth > 414) {
+        //                 config.width = 414
+        //                 config.height = 736
+        //             } else {
+        //                 config.fullscreen = true
+        //             }
 
-            weather.init()
+        //             var two = new Two(config).appendTo(document.getElementById('weather'))
+        //             var w=this.width = two.width,
+        //             h=this.height = two.height
+        //             var cloud1 = two.makeCurve(-w,0,-w,100,0,150,w/2,100,w,150,2*w,100)
+        //                 cloud1.linewidth=0
+        //                 cloud1.fill='#d5d5d5'
+        //             two.update()
 
+        //         }
+        //     }
+        //     weather.init()
 
-
-
-
+        oCanvas.domReady(function () {
+                weather.init()
         })
 
+        var weather={
+            init:function(){
+                var canvas=oCanvas.create({ canvas:'#canvas',
+            })
+        } }
     </script>
 </body>
 </html>

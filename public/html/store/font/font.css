@@ -1,0 +1,6 @@
+@font-face{
+	font-family:iconfont-sm;
+	src:url(./font-icon.woff) format('woff'),
+		url(./font-icon.ttf) format('truetype'),
+		url(./font-icon.svg#iconfont) format('svg')
+}

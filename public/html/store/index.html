@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>积分商城</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <link rel="shortcut icon" href="/favicon.ico">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="stylesheet" href="css/sm.min.css">
+        <link rel="stylesheet" href="css/swiper-3.4.2.min.css">
+        <link rel="stylesheet" href="css/index.min.css">
+        <link rel="stylesheet" href="font/font.css">
+    </head>
+    <body>
+        <div class="page-group">
+            <!--首页-->
+            <div class="page page-current" id="main">
+                <div class="content">
+                    <!--广告轮播-->
+                    <div class="swiper-container" id="swiper1" data-space-between='10'>
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">1<img src="img/2.jpg" alt=""></div>
+                            <div class="swiper-slide">2<img src='img/2.jpg' alt=""></div>
+                            <div class="swiper-slide">3<img src='img/2.jpg' alt=""></div>
+                        </div>
+                        <div class="swiper-pagination sp1"></div>
+                    </div>
+                    <!--分类-->
+                    <div class="sort">
+                        <ul>
+                            <a href='#sort'>
+                                <li><i class="icon icon-app"></i>分类</li>
+                            </a>
+                            <a href='#order'>
+                                <li><i class="icon icon-menu"></i>我的订单</li>
+                            </a>
+                            <a href='#search'>
+                                <li><i class="icon icon-search"></i>搜索</li>
+                            </a>
+                            <a href='#my'>
+                                <li><i class="icon icon-me"></i>我的积分</li>
+                            </a>
+                            <!--<a href='#know'>
+                                <li>
+                                    <img src="img/know.png" class="icon-know">卖家入住
+                                </li>
+                            </a>-->
+                            <a href='#seller'>
+                                <li><i class="icon icon-friends"></i>发布商品</li>
+                            </a>
+                        </ul>
+                    </div>
+                    <div class='hot'>
+                        <div class="card">
+                            <div class="card-header">热门兑换</div>
+                            <div class="card-content">
+                                <div class="card-content-inner">
+                                    <!-- Swiper -->
+                                    <div class="swiper-container" id="swiper2">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <a href="#info" class="per">
+                                                    <img src="img/1.jpg" alt="">                                                    100积分兑换
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="#info" class="per">
+                                                    <img src="img/1.jpg" alt="">                                                    100积分兑换
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="#info" class="per">
+                                                    <img src="img/1.jpg" alt="">                                                    100积分兑换
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="#info" class="per">
+                                                    <img src="img/2.jpg" alt="">                                                    100积分兑换
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="#info" class="per">
+                                                    <img src="img/2.jpg" alt="">                                                    100积分兑换
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="#info" class="per">
+                                                    <img src="img/2.jpg" alt="">                                                    100积分兑换
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='recommend'>
+                        <div class="card">
+                            <div class="card-header">为你推荐</div>
+                            <div class="card-content">
+                                <ul id="goods" class="goods">
+                                    <li class="per-goods">
+                                        <a data-gid='goods1' href='#info'>
+                                            <div>
+                                                <img src="img/1.jpg" alt="">
+                                                <p class="goods-t">【限时秒杀】汉堡王草莓新地买一送一优惠券</p>
+                                                <div class="flex-l-r">
+                                                    <span class="fen"><span>100</span>积分</span>
+                                                    <span class='buy'>兑换</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="per-goods">
+                                        <a data-gid='goods1' href='#info'>
+                                            <div>
+                                                <img src="img/1.jpg" alt="">
+                                                <p class="goods-t">【限时秒杀】汉堡王草莓新地买一送一优惠券</p>
+                                                <div class="flex-l-r">
+                                                    <span class="fen"><span>100</span>积分</span>
+                                                    <span class='buy'>兑换</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="per-goods">
+                                        <a data-gid='goods1' href='#info'>
+                                            <div>
+                                                <img src="img/1.jpg" alt="">
+                                                <p class="goods-t">【限时秒杀】汉堡王草莓新地买一送一优惠券</p>
+                                                <div class="flex-l-r">
+                                                    <span class="fen"><span>100</span>积分</span>
+                                                    <span class='buy'>兑换</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="per-goods">
+                                        <a data-gid='goods1' href='#info'>
+                                            <div>
+                                                <img src="img/1.jpg" alt="">
+                                                <p class="goods-t">【限时秒杀】汉堡王草莓新地买一送一优惠券</p>
+                                                <div class="flex-l-r">
+                                                    <span class="fen"><span>100</span>积分</span>
+                                                    <span class='buy'>兑换</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="per-goods">
+                                        <a data-gid='goods1' href='#info'>
+                                            <div>
+                                                <img src="img/1.jpg" alt="">
+                                                <p class="goods-t">【限时秒杀】汉堡王草莓新地买一送一优惠券</p>
+                                                <div class="flex-l-r">
+                                                    <span class="fen"><span>100</span>积分</span>
+                                                    <span class='buy'>兑换</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--分类-->
+            <div class="page" id="sort">
+                <header class="bar bar-nav">
+                    <a class="pull-left back icon icon-left">返回</a>
+                    <h1 class="title">分类</h1>
+                </header>
+                <div class='content'>
+                    <ul class='sort-l'>
+                        <li data-tar='#sort1' class='active'>分类一</li>
+                        <li data-tar='#sort2'>分类二</li>
+                        <li data-tar='#sort3'>其他</li>
+                    </ul>
+                    <div class='sort-r'>
+                        <div id="sort1">
+                            sort1
+                        </div>
+                        <div id="sort2" style='display:none'>
+                            sort2
+                        </div>
+                        <div id="sort3" style='display:none'>
+                            sort3
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--订单-->
+            <div id="order" class="page">
+                <header class="bar bar-nav">
+                    <a class="pull-left back icon icon-left">返回</a>
+                    <h1 class="title">我的订单</h1>
+                </header>
+                <div class="content ">
+                    <div class="buttons-tab">
+                        <a href="#tab1" class="tab-link active button">待兑换</a>
+                        <a href="#tab2" class="tab-link button">待收货</a>
+                        <a href="#tab3" class="tab-link button">已完成</a>
+                    </div>
+                    <div class="tabs">
+                        <div id="tab1" class="tab active">
+                            <div class='list-block media-list'>
+                                <ul>
+                                    <li class="per-order">
+                                        <span class='checkbox'></span>
+                                        <a href='#info'>
+                                            <div class='per-order-r'>
+                                                <div class='per-order-img'>
+                                                    <img src="img/1.jpg" alt="">
+                                                </div>
+                                                <div class='per-order-info'>
+                                                    <h5>【限时秒杀】汉堡王草莓新地买一送一优惠券</h5>
+                                                    <p><span class='per-fen'>100</span>积分 <span class='num'>&times;<i>2</i></span></p>
+                                                    <p class='addres'>寄到：<span>湖北省武汉市中南路112号</span></p>
+                                                    <p class='leave-msg'>留言：<span>请寄顺丰快递</span></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="dele">删除</div>
+                                    </li>
+                                    <li class="per-order">
+                                        <span class='checkbox'></span>
+                                        <a href='#info'>
+                                            <div class='per-order-r'>
+                                                <div class='per-order-img'>
+                                                    <img src="img/1.jpg" alt="">
+                                                </div>
+                                                <div class='per-order-info'>
+                                                    <h5>【限时秒杀】汉堡王草莓新地买一送一优惠券</h5>
+                                                    <p><span class='per-fen'>100</span>积分 <span class='num'>&times;<i>2</i></span></p>
+                                                    <p class='addres'>寄到：<span>湖北省武汉市中南路112号</span></p>
+                                                    <p class='leave-msg'>留言：<span>请寄顺丰快递</span></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="dele">删除</div>
+                                    </li>
+                                    <li class="per-order">
+                                        <span class='checkbox'></span>
+                                        <a href='#info'>
+                                            <div class='per-order-r'>
+                                                <div class='per-order-img'>
+                                                    <img src="img/1.jpg" alt="">
+                                                </div>
+                                                <div class='per-order-info'>
+                                                    <h5>【限时秒杀】汉堡王草莓新地买一送一优惠券</h5>
+                                                    <p><span class='per-fen'>100</span>积分 <span class='num'>&times;<i>1</i></span></p>
+                                                    <p class='addres'>寄到：<span>湖北省武汉市中南路112号</span></p>
+                                                    <p class='leave-msg'>留言：<span>请寄顺丰快递</span></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="dele">删除</div>
+                                    </li>
+                                    <li class="per-order">
+                                        <span class='checkbox'></span>
+                                        <a href='#info'>
+                                            <div class='per-order-r'>
+                                                <div class='per-order-img'>
+                                                    <img src="img/1.jpg" alt="">
+                                                </div>
+                                                <div class='per-order-info'>
+                                                    <h5>【限时秒杀】汉堡王草莓新地买一送一优惠券</h5>
+                                                    <p><span class='per-fen'>100</span>积分 <span class='num'>&times;<i>1</i></span></p>
+                                                    <p class='addres'>寄到：<span>湖北省武汉市中南路112号</span></p>
+                                                    <p class='leave-msg'>留言：<span>请寄顺丰快递</span></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="dele">删除</div>
+                                    </li>
+                                    <li class="per-order">
+                                        <span class='checkbox'></span>
+                                        <a href='#info'>
+                                            <div class='per-order-r'>
+                                                <div class='per-order-img'>
+                                                    <img src="img/1.jpg" alt="">
+                                                </div>
+                                                <div class='per-order-info'>
+                                                    <h5>【限时秒杀】汉堡王草莓新地买一送一优惠券</h5>
+                                                    <p><span class='per-fen'>100</span>积分 <span class='num'>&times;<i>1</i></span></p>
+                                                    <p class='addres'>寄到：<span>湖北省武汉市中南路112号</span></p>
+                                                    <p class='leave-msg'>留言：<span>请寄顺丰快递</span></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="dele">删除</div>
+                                    </li>
+                                    <li class="per-order">
+                                        <span class='checkbox'></span>
+                                        <a href='#info'>
+                                            <div class='per-order-r'>
+                                                <div class='per-order-img'>
+                                                    <img src="img/1.jpg" alt="">
+                                                </div>
+                                                <div class='per-order-info'>
+                                                    <h5>【限时秒杀】汉堡王草莓新地买一送一优惠券</h5>
+                                                    <p><span class='per-fen'>100</span>积分 <span class='num'>&times;<i>1</i></span></p>
+                                                    <p class='addres'>寄到：<span>湖北省武汉市中南路112号</span></p>
+                                                    <p class='leave-msg'>留言：<span>请寄顺丰快递</span></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="dele">删除</div>
+                                    </li>
+                                    <li class="per-order">
+                                        <span class='checkbox'></span>
+                                        <a href='#info'>
+                                            <div class='per-order-r'>
+                                                <div class='per-order-img'>
+                                                    <img src="img/1.jpg" alt="">
+                                                </div>
+                                                <div class='per-order-info'>
+                                                    <h5>【限时秒杀】汉堡王草莓新地买一送一优惠券</h5>
+                                                    <p><span class='per-fen'>100</span>积分 <span class='num'>&times;<i>1</i></span></p>
+                                                    <p class='addres'>寄到：<span>湖北省武汉市中南路112号</span></p>
+                                                    <p class='leave-msg'>留言：<span>请寄顺丰快递</span></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="dele">删除</div>
+                                    </li>
+                                   
+                                </ul>
+                            </div>
+                            <div class='pay'>
+                                <div class="all-check">
+                                    <span class='checkbox'></span>
+                                    <div class='pay-l'>
+                                        总价：<span class='order-total'>0</span>积分
+                                    </div>
+                                </div>
+                                <div class="pay-r">
+                                    立即兑换
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab2" class="tab">
+                                <ul>
+                                    <li class='sending'>
+                                        <div class='per-order-r'>
+                                            <div class='per-order-img'>
+                                                <img src="img/1.jpg" alt="">
+                                            </div>
+                                            <div class='per-order-info'>
+                                                <h5>【限时秒杀】汉堡王草莓新地买一送一优惠券</h5>
+                                                <p><span class='per-fen'>100</span>积分 <span class='num'>&times;<i>2</i></span></p>
+                                                <p class='addres'>寄到：<span>湖北省武汉市中南路112号</span></p>
+                                                <p class='leave-msg'>留言：<span>请寄顺丰快递</span></p>
+                                                <p class='express'>快递单号：<span>12345678960</span></p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class='sending'>
+                                        <div class='per-order-r'>
+                                            <div class='per-order-img'>
+                                                <img src="img/1.jpg" alt="">
+                                            </div>
+                                            <div class='per-order-info'>
+                                                <h5>【限时秒杀】汉堡王草莓新地买一送一优惠券</h5>
+                                                <p><span class='per-fen'>100</span>积分 <span class='num'>&times;<i>2</i></span></p>
+                                                <p class='addres'>寄到：<span>湖北省武汉市中南路112号</span></p>
+                                                <p class='leave-msg'>留言：<span>请寄顺丰快递</span></p>
+                                                <p class='express'>快递单号：<span>12345678960</span></p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class='sending'>
+                                        <div class='per-order-r'>
+                                            <div class='per-order-img'>
+                                                <img src="img/1.jpg" alt="">
+                                            </div>
+                                            <div class='per-order-info'>
+                                                <h5>【限时秒杀】汉堡王草莓新地买一送一优惠券</h5>
+                                                <p><span class='per-fen'>100</span>积分 <span class='num'>&times;<i>2</i></span></p>
+                                                <p class='addres'>寄到：<span>湖北省武汉市中南路112号</span></p>
+                                                <p class='leave-msg'>留言：<span>请寄顺丰快递</span></p>
+                                                <p class='express'>快递单号：<span>12345678960</span></p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class='sending'>
+                                        <div class='per-order-r'>
+                                            <div class='per-order-img'>
+                                                <img src="img/1.jpg" alt="">
+                                            </div>
+                                            <div class='per-order-info'>
+                                                <h5>【限时秒杀】汉堡王草莓新地买一送一优惠券</h5>
+                                                <p><span class='per-fen'>100</span>积分 <span class='num'>&times;<i>2</i></span></p>
+                                                <p class='addres'>寄到：<span>湖北省武汉市中南路112号</span></p>
+                                                <p class='leave-msg'>留言：<span>请寄顺丰快递</span></p>
+                                                <p class='express'>快递单号：<span>12345678960</span></p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class='sending'>
+                                        <div class='per-order-r'>
+                                            <div class='per-order-img'>
+                                                <img src="img/1.jpg" alt="">
+                                            </div>
+                                            <div class='per-order-info'>
+                                                <h5>【限时秒杀】汉堡王草莓新地买一送一优惠券</h5>
+                                                <p><span class='per-fen'>100</span>积分 <span class='num'>&times;<i>2</i></span></p>
+                                                <p class='addres'>寄到：<span>湖北省武汉市中南路112号</span></p>
+                                                <p class='leave-msg'>留言：<span>请寄顺丰快递</span></p>
+                                                <p class='express'>快递单号：<span>12345678960</span></p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                       
+                        </div>
+                        <div id="tab3" class="tab">
+                            <div class="content-block">
+                                <p>This is tab 3 content</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--搜索-->
+            <div class="page" id="search">
+                <header class="bar bar-nav">
+                    <a class="pull-left back icon icon-left">返回</a>
+                    <h1 class="title">搜索</h1>
+                </header>
+                <div class="bar bar-header-secondary">
+                    <div class="searchbar">
+                        <a class="searchbar-cancel">取消</a>
+                        <div class="search-input">
+                            <label class="icon icon-search" for="search"></label>
+                            <input type="search" placeholder='输入关键字...' />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--我的积分-->
+            <div class="page" id="my">
+                <div class="content">
+                    <header class="bar bar-nav">
+                        <a class="pull-left back icon icon-left">返回</a>
+                        <h1 class="title">我的积分<a href="#know">兑换须知</a></h1>
+                    </header>
+                    <div class="list-block contacts-block">
+                        <div class="list-group">
+                            <ul>
+                                <li class="list-group-title">我的积分：<span>100</span></li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <span class='point'>消费：10积分</span>
+                                                <span class='time'>2017-5-1</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <span class='point'>消费：10积分</span>
+                                                <span class='time'>2017-5-1</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <span class='point'>消费：10积分</span>
+                                                <span class='time'>2017-5-1</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <span class='point'>消费：10积分</span>
+                                                <span class='time'>2017-5-1</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--兑换须知-->
+            <div class="page" id="know">
+                <header class="bar bar-nav">
+                    <a class="pull-left back icon icon-left">返回</a>
+                    <h1 class="title">兑换须知</h1>
+                </header>
+                <div class="content">
+                    <h3 class="know-t">常见问题</h3>
+                    <div class="card">
+                        <div class="card-header">什么是熊猫积分？</div>
+                        <div class="card-content">
+                            <div class="card-content-inner">头和尾的卡片。卡头是用来显示一些额外的信息，或自定义操作卡标题和页脚。</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">如何获取熊猫积分？</div>
+                        <div class="card-content">
+                            <div class="card-content-inner">头和尾的卡片。卡头是用来显示一些额外的信息，或自定义操作卡标题和页脚。</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">如何使用熊猫积分？</div>
+                        <div class="card-content">
+                            <div class="card-content-inner">头和尾的卡片。卡头是用来显示一些额外的信息，或自定义操作卡标题和页脚。</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">熊猫积分有效期多久？</div>
+                        <div class="card-content">
+                            <div class="card-content-inner">头和尾的卡片。卡头是用来显示一些额外的信息，或自定义操作卡标题和页脚。</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--商品详情-->
+            <div id="info" class="page">
+                <header class="bar bar-nav">
+                    <a class="pull-left back icon icon-left">返回</a>
+                    <h1 class="title">详情</h1>
+                </header>
+                <div class='content'>
+                    <div class="card demo-card-header-pic">
+                        <div valign="bottom" class="card-header color-white no-border no-padding">
+                            <img class='card-cover' src="img/1.jpg"
+                                alt="">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-content-inner" style="padding-bottom:0">
+                                <div class='intro'>
+                                    <h3>隆力奇 蛇胆清爽沐浴露 保湿滋润补水 清爽沐浴乳 200ml</h3>
+                                </div>
+                                <p class="color-gray">库存量：<span>100</span>件</p>
+                                <p class="color-gray">来自：荷兰品牌 菜鸟重庆保税2号仓发货</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header hot-t">商品简介</div>
+                        <div class="card-content">
+                        <div class="card-content-inner">这里是商品简介这里是商品简介这里是商品简介这里是商品简介这里是商品简介这里是商品简介这里是商品简介这里是商品简介这里是商品简介这里是商品简介这里是商品简介这里是商品简介这里是商品简介这里是商品简介这里是商品简介这里是商品简介</div>
+                        </div>
+                        <div class="card-footer msg">
+                            <div>
+                                <span class='red'>*</span> 联系方式：
+                                <div class='list-block'><textarea style="height:2rem"></textarea></div>
+                            </div>
+                            <div class='addr'>
+                                <span class='red'>*</span> 邮寄地址:
+                                 <div class='list-block'><textarea></textarea></div>
+                            </div>
+                            <div>
+                                给卖家留言：
+                                <div class='list-block'><textarea></textarea></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='info-footer'>
+                        <div class='i-l'>
+                            单价：<span>200</span>积分
+                        </div>
+                        <div class='i-r'>
+                            立即兑换
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--发布商品-->
+            <div id="seller" class='page'>
+                <header class="bar bar-nav">
+                    <a class="pull-left back icon icon-left">返回</a>
+                    <h1 class="title">发布商品</h1>
+                    <a href="#manage">我的商品</a>
+                </header>
+                <div class="content">
+                    <div class="list-block">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">姓名</div>
+                                        <div class="item-input">
+                                        <input type="text" placeholder="您的姓名">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">联系方式</div>
+                                        <div class="item-input">
+                                        <input type="tel" placeholder="您的联系方式">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">商品名称</div>
+                                        <div class="item-input">
+                                        <input type="text" placeholder="商品名称">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">兑换积分</div>
+                                        <div class="item-input">
+                                        <input type="number" placeholder="兑换积分">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">商品所在地</div>
+                                        <div class="item-input">
+                                        <input type="number" placeholder="商品所在地">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner" style='display:block'>
+                                        <div class='uploadImgBox'>
+                                            <ul class='imgList' id="imgListPost"></ul>
+                                            <a class='button button-big' onclick="loadImg(this)">上传图片</a>
+                                            <input type="file" accept="image/*" multiple id="abc">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                           <li class="align-top">
+                             <div class="item-content">
+                               <div class="item-media"><i class="icon icon-form-comment"></i></div>
+                               <div class="item-inner">
+                                 <div class="item-title label">商品简介</div>
+                                 <div class="item-input">
+                                   <textarea></textarea>
+                                 </div>
+                               </div>
+                             </div>
+                           </li>
+                           <li>
+                                <a href="javascript:postGoods()" class="button button-big button-fill button-success">提交</a>
+                           </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <!--成为商家-->
+            <div class="page" id="become">
+                <header class="bar bar-nav">
+                    <a class="pull-left back icon icon-left">返回</a>
+                    <h1 class="title">成为商家</h1>
+                </header>
+                <div class="content">
+                    <div class="list-block">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                    <div class="item-title label">姓名</div>
+                                    <div class="item-input">
+                                        <input type="text" placeholder="您的姓名">
+                                    </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                    <div class="item-title label">联系方式</div>
+                                    <div class="item-input">
+                                        <input type="text" placeholder="您的联系方式">
+                                    </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="align-top">
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">现居住地址</div>
+                                        <div class="item-input">
+                                        <textarea></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <a href="javascript:postGoods()" class="button button-big button-fill button-success">提交</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class='notice'>
+                                成为商家需要手续费，提交后会有客户联系您
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--管理商品-->
+            <div class="page" id="manage">
+                <header class="bar bar-nav">
+                    <a class="pull-left back icon icon-left">返回</a>
+                    <h1 class="title">我的商品</h1>
+                </header>
+                <div class="content">
+                    <div class="list-block media-list">
+                        <ul>
+                            <li>
+                                <a href="#modify" data-no-cache="true" class="item-link item-content">
+                                    <div class="item-media"><img src="img/1.jpg"
+                                            style='width: 4rem;'></div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">隆力奇 蛇胆清爽沐浴露 保湿滋润补水 清爽沐浴乳 200ml</div>
+                                            <div class="item-after">200积分</div>
+                                        </div>
+                                        <div class="item-subtitle">商品简介:</div>
+                                        <div class="item-text">这里是简介简介.这里是简介简介这里是简介简介这里是简介简介这里是简介简介这里是简介简介这里是简介简介这里是简介简介这里是简介简介这里是简介简介这里是简介简介这里是简介简介这里是简介简介这里是简介简介</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#modify" class="item-link item-content">
+                                    <div class="item-media"><img src="img/1.jpg"
+                                            style='width: 4rem;'></div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">隆力奇 蛇胆清爽沐浴露 保湿滋润补水 清爽沐浴乳 200ml</div>
+                                            <div class="item-after">200积分</div>
+                                        </div>
+                                        <div class="item-subtitle">商品简介:</div>
+                                        <div class="item-text">这里是简介简介.这里是简介简介这里是简介简介这里是简介简介这里是简介简介这里是简介简介这里是简介简介这里是简介简介这里是简介简介这里是简介简介这里是简介简介这里是简介简介这里是简介简介这里是简介简介</div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <!--更改商品-->
+            <div class="page" id="modify">
+                <header class="bar bar-nav">
+                    <a class="pull-left back icon icon-left">返回</a>
+                    <h1 class="title">发布详情</h1>
+                </header>
+                <div class='content'>
+                    <div class="list-block">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">商品名称</div>
+                                        <div class="item-input">
+                                            <input type="text" placeholder="商品名称">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">兑换积分</div>
+                                        <div class="item-input">
+                                            <input type="number" placeholder="兑换积分">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner" style='display:block'>
+                                        <div class='uploadImgBox'>
+                                            <ul class='imgList' id="imgListModify">
+                                                <li style='background-image:url(img/2.jpg)'><span>&times;</span></li>
+                                                <li style='background-image:url(img/1.jpg)'><span>&times;</span></li>
+                                            </ul>
+                                            <a class='button button-big' onclick="loadImg(this)">上传图片</a>
+                                            <input type="file" accept="image/*" multiple id="abc">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="align-top">
+                                <div class="item-content">
+                                    <div class="item-media"><i class="icon icon-form-comment"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title label">商品简介</div>
+                                        <div class="item-input">
+                                            <textarea></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="javascript:postGoods()" class="button button-big button-fill button-success">修改</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        <!-- popup, panel 等放在这里 -->
+        <div class="panel-overlay"></div>
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script>var Zepto = $;</script>
+        <script src="js/sm.min.js"></script>
+        <script src="js/swiper-3.4.2.jquery.min.js"></script>
+        <script src='js/index.js'></script>
+    </body>
+</html>
